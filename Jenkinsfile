@@ -46,9 +46,9 @@ node {
 		withSonarQubeEnv('Sonar') {
 			withMaven(maven: 'maven') {
 				if(isUnix()) {
-					sh "mvn verify org.sonarsource.sonar.scanner.maven:sonar -Dsonar.projectKey=org.springdoc:spring-boot-webmvc"
+					sh "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=org.springdoc:spring-boot-webmvc"
 				} else {
-					sh "mvn verify org.sonarsource.sonar.scanner.maven:sonar -Dsonar.projectKey=org.springdoc:spring-boot-webmvc"
+					bat "mvn verify org.sonarsource.scanner.maven:sonar-maven-plugin:sonar -Dsonar.projectKey=org.springdoc:spring-boot-webmvc"
 				}
 			}
 		}
